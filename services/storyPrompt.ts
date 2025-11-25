@@ -53,6 +53,7 @@ export const constructStoryPrompt = (params: StoryPromptParams): string => {
     The story should be rhythmic, calming, and foster a deep sense of safety and love.
     Avoid any scary elements, loud noises, or negative conflict.
     Use simple, melodic language.
+    Ensure every sentence ends with proper punctuation and a space before the next sentence begins.
 
     Return the result strictly as a JSON object with the keys: "title" and "content".
   `;

@@ -42,6 +42,13 @@ export const generateStory = async (params: StoryPromptParams): Promise<StoryRes
     }
 
     const jsonResponse = JSON.parse(responseText) as StoryResponse;
+    
+    // Post-processing to fix common grammar spacing issues
+    // Example: "beauty.Picture" -> "beauty. Picture"
+    if (jsonResponse.content) {
+      jsonResponse.content = jsonResponse.content.replace(/([.!?])([A-Z])/g, '$1 $2');
+    }
+
     return jsonResponse;
 
   } catch (error) {

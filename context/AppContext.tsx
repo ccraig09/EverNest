@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { UserProfile, GeneratedStory, FaithPreference } from '../types';
+import { UserProfile, GeneratedStory, FaithPreference, StoryTheme, StoryLength } from '../types';
 
 interface AppContextType {
   profile: UserProfile;
@@ -18,6 +18,8 @@ const defaultProfile: UserProfile = {
   darkMode: false,
   fontSize: 'normal',
   hasCompletedOnboarding: false,
+  lastSelectedTheme: StoryTheme.LOVE_BONDING,
+  lastSelectedLength: StoryLength.STANDARD,
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);

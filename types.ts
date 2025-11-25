@@ -27,6 +27,8 @@ export interface UserProfile {
   darkMode: boolean;
   fontSize: 'normal' | 'large';
   hasCompletedOnboarding: boolean;
+  lastSelectedTheme?: StoryTheme;
+  lastSelectedLength?: StoryLength;
 }
 
 export interface GeneratedStory {

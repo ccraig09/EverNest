@@ -6,10 +6,14 @@ import Button from '../components/Button';
 import { Sparkles, RefreshCw, Heart, Volume2, Share2, AlertCircle } from 'lucide-react';
 
 const Today: React.FC = () => {
-  const { profile, saveStory, toggleFavorite } = useApp();
+  const { profile, updateProfile, saveStory, toggleFavorite } = useApp();
   
-  const [selectedTheme, setSelectedTheme] = useState<StoryTheme>(StoryTheme.LOVE_BONDING);
-  const [selectedLength, setSelectedLength] = useState<StoryLength>(StoryLength.STANDARD);
+  // Use preferences from profile, fallback to defaults if not set
+  const selectedTheme = profile.lastSelectedTheme || StoryTheme.LOVE_BONDING;
+  const selectedLength = profile.lastSelectedLength || StoryLength.STANDARD;
+
+  const setSelectedTheme = (theme: StoryTheme) => updateProfile({ lastSelectedTheme: theme });
+  const setSelectedLength = (length: StoryLength) => updateProfile({ lastSelectedLength: length });
   
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
